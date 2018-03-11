@@ -25,11 +25,11 @@ def webhook():
     req = request.get_json(silent=True, force=True)
 
     print("Request:")
-    print(json.dumps(req, indent=5))
+    print(json.dumps(req, indent=4))
 
     res = makeWebhookResult(req)
 
-    res = json.dumps(res, indent=5)
+    res = json.dumps(res, indent=4)
     print(res)
     r = make_response(res)
     r.headers['Content-Type'] = 'application/json'
@@ -59,8 +59,8 @@ def makeWebhookResult(req):
                 "source": "input-subject-name"
                }
     
-def makeWebhookResult(req):    
-    if req.get("result").get("action") == "input-publication":
+   
+    elif req.get("result").get("action") == "input-publication":
         
         result = req.get("result")
         parameters = result.get("parameters")
