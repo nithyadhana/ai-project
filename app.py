@@ -59,6 +59,7 @@ def makeWebhookResult(req):
                 "source": "input-subject-name"
                }
     
+def makeWebhookResult(req):    
     if req.get("result").get("action") == "input-publication":
         
         result = req.get("result")
