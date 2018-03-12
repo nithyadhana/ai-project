@@ -1,17 +1,9 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Mar 02 10:26:53 2018
-
-@author: nithya
-"""
-
 #!/usr/bin/env python
 
-import urllib
-import json
-import os
-import csv
 
+import csv
+import os
+import json
 from flask import Flask
 from flask import request
 from flask import make_response
@@ -41,12 +33,14 @@ def makeWebhookResult(req):
         result = req.get("result")
         parameters = result.get("parameters")
         zone = parameters.get("subject_name")
+    
         csv_file = csv.reader(open('books1.csv'), delimiter=",")
-        
-        for row in csv_file:
+       
+        for row in csv_file:    
             if zone == row[1]:
-                speech = ("Book Id: " + row[0] + "\n Book Title: " + row[1] + "\n Authors: " + row[2] + "\n Publication: " + row[3] + "\n staus: " +row[5] + "\n Rack Number: "+ row[5])
-
+                speech = ("\n\nBook Id: " + row[0] + "\n Book Title: " + row[1] + "\n Authors: " + row[2] + "\n Publication: " + row[3] + "\n Rack Number:" + row[4])
+        
+        print(speech)
         
         
         print("Response:")
@@ -59,19 +53,20 @@ def makeWebhookResult(req):
                 "source": "input-subject-name"
                }
     
-   
     elif req.get("result").get("action") == "input-publication":
         
         result = req.get("result")
         parameters = result.get("parameters")
         zone = parameters.get("publication_names")
+    
         csv_file = csv.reader(open('books1.csv'), delimiter=",")
-        
-        for row in csv_file:
+       
+        for row in csv_file:    
             if zone == row[3]:
-                speech = ("Book Id: " + row[0] + "\n Book Title: " + row[1] + "\n Authors: " + row[2] + "\n Publication: " + row[3] + "\n staus: " +row[5] + "\n Rack Number: "+ row[5])
-
+                speech = ("\n\nBook Id: " + row[0] + "\n Book Title: " + row[1] + "\n Authors: " + row[2] + "\n Publication: " + row[3] + "\n Rack Number:" + row[4])
+        
         print(speech)
+        
         
         print("Response:")
         print(speech)
@@ -82,7 +77,10 @@ def makeWebhookResult(req):
                 #"contextOut": [],
                 "source": "input-publication"
                }
-         
+    
+   
+    
+        
     
     else:
        return{}
