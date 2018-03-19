@@ -61,15 +61,11 @@ def makeWebhookResult(req):
     
         csv_file = csv.reader(open('books1.csv'), delimiter=",")
        
-        for row in csv_file:    
-            if zone == row[3]:
+        for row in csv_file:
+            for i in range(0,l00)
+            if zone == row[i]:
                 speech = ("\n\nBook Id: " + row[0] + "\n Book Title: " + row[1] + "\n Authors: " + row[2] + "\n Publication: " + row[3] + "\n status:" + row[5] + "\n Rack Number:" + row[4])
         
-                
-        
-        
-                #print("Response:")
-                #print(speech)
                 return {
                     "speech": speech,
                     "displayText": speech,
