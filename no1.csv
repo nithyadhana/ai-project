@@ -1,7 +1,7 @@
-book id,	book name,	author, 	publication,	status,	position
-1	computer architecture,	behrooz,	oxford,	available,	1
-2	computer architecture,	js leena jasmine,	magnus publications,	available,	1
-3	computer architecture,	kanimozhi,	oxford,	available,	1
-4	computer architecture,	godse,	technical publication,	available,	1
-5	computer architecture,	venkatesan,	ar publications,	available,	1
-6	computer architecture,	leena jasmine,	magnus publications,	available,	1
+book id,"	book name","	author"," 	publication","	status","	position"
+1,"	computer architecture","	behrooz","	oxford","	available","	1"
+2,"	computer architecture","	js leena jasmine","	magnus publications","	available","	1"
+3,"	computer architecture","	kanimozhi","	oxford","	available","	1"
+4,"	computer architecture","	godse","	technical publication","	available","	1"
+5,"	computer architecture","	venkatesan","	ar publications","	available","	1"
+6,"	computer architecture","	leena jasmine","	magnus publications","	available","	1"
