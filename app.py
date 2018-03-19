@@ -43,8 +43,8 @@ def makeWebhookResult(req):
                 print(speech)
         
         
-        print("Response:")
-        print(speech)
+                print("Response:")
+                print(speech)
         return {
                 "speech": speech,
                 "displayText": speech,
