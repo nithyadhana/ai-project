@@ -36,23 +36,54 @@ def makeWebhookResult(req):
     
         csv_file = csv.reader(open('books1.csv'), delimiter=",")
        
-        for row in csv_file:
+        for row in csv_file:    
             if zone == row[1]:
                 speech = ("\n\nBook Id: " + row[0] + "\n Book Title: " + row[1] + "\n Authors: " + row[2] + "\n Publication: " + row[3] + "\n status:" + row[5] + " \n Rack Number:" + row[4])
-                print(speech)
-    
-      elif req.get("result").get("action") == "input-publication":
         
-            result = req.get("result")
-            parameters = result.get("parameters")
-            zone = parameters.get("publication_names")
+                print(speech)
+        
+        
+        print("Response:")
+        print(speech)
+        return {
+                "speech": speech,
+                "displayText": speech,
+                #"data": {},
+                #"contextOut": [],
+                "source": "input-subject-name"
+               }
     
-            csv_file = csv.reader(open('books1.csv'), delimiter=",")
+    elif req.get("result").get("action") == "input-publication":
+        
+        result = req.get("result")
+        parameters = result.get("parameters")
+        zone = parameters.get("publication_names")
+    
+        csv_file = csv.reader(open('books1.csv'), delimiter=",")
        
-            for row in csv_file:    
-                if zone == row[3]:
-                    speech = ("\n\nBook Id: " + row[0] + "\n Book Title: " + row[1] + "\n Authors: " + row[2] + "\n Publication: " + row[3] + "\n status:" + row[5] + "\n Rack Number:" + row[4])
-                    print(speech)
+        for row in csv_file:    
+            if zone == row[3]:
+                speech = ("\n\nBook Id: " + row[0] + "\n Book Title: " + row[1] + "\n Authors: " + row[2] + "\n Publication: " + row[3] + "\n status:" + row[5] + "\n Rack Number:" + row[4])
+        
+        print(speech)
+        
+        
+        print("Response:")
+        print(speech)
+        return {
+                "speech": speech,
+                "displayText": speech,
+                #"data": {},
+                #"contextOut": [],
+                "source": "input-publication"
+               }
+    
+   
+    
+        
+    
+    else:
+       return{}
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
 
