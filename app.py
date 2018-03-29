@@ -44,16 +44,7 @@ def makeWebhookResult(req):
         print(speech)
         
         
-        print("Response:")
-        print(speech)
-        return {
-                "speech": speech,
-                "displayText": speech,
-                #"data": {},
-                #"contextOut": [],
-                "source": "input-subject-name"
-               }
-    
+        
     elif req.get("result").get("action") == "input-publication":
         
         result = req.get("result")
@@ -69,15 +60,7 @@ def makeWebhookResult(req):
         print(speech)
         
         
-        print("Response:")
-        print(speech)
-        return {
-                "speech": speech,
-                "displayText": speech,
-                #"data": {},
-                #"contextOut": [],
-                "source": "input-publication"
-               }
+      
     
     else:
        return{}
